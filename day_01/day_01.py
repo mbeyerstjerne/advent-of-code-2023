@@ -1,15 +1,11 @@
-import re
+sum = 0
 
-sum=0
-groups=[]
+with open('day_01\day_01_input.txt','r') as f:
+    for line in f:
+        num = ''
+        for c in line:
+            if c.isdigit():
+                num = num + c
+        sum = sum + 10*int(num[0])+int(num[::-1][0])
 
-with open("day_01\day_01_input.txt", "r") as f:
-    for line in f: 
-        first = re.search(r'\d', line)
-        last = re.search(r'\d', line[::-1])
-        calibration = 10*first + 1*last
-        groups.append(calibration)
-
-calibration_total = groups.sum()
-
-calibration_total
+print(sum)
