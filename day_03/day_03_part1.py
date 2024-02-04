@@ -13,7 +13,7 @@ for index, line in enumerate(engine_schematic):
     for item in matches:
         up_adjacent_squares = engine_schematic[max(0,index-1)][item.start()-1:item.end()+1]
         middle_adjacent_squares = line[max(0,item.start()-1):min(item.end()+ 1, len(line))]
-        down_adjacent_squares = engine_schematic[min(len(engine_schematic)-1,index+1)][item.start()-1:item.end()+1:]
+        down_adjacent_squares = engine_schematic[min(len(engine_schematic)-1,index+1)][item.start()-1:item.end()+1]
         if any(re.search(r'[^0-9\.\n]',square_rows) for square_rows in [up_adjacent_squares, middle_adjacent_squares, down_adjacent_squares]):
             sum += int(item.group())
         else:
